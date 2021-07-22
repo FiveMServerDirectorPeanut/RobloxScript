@@ -1,0 +1,195 @@
+local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
+local user = game.Players.LocalPlayer.Name
+
+local s = VLib:Window(user, "Retail Tycoon 2", "R")
+
+-- Tab A Section --
+local a = s:Tab("Auto Section")
+local b = s:Tab("Car Section")
+local c = s:Tab("Mix")
+c:Button("Kill Gui", function()
+
+end)
+c:Textbox("Teleport to Player", true,function(t)
+	local name = game.Players.LocalPlayer.Name
+	local player = game.Workspace[name].HumanoidRootPart
+	local other =  game.Workspace[t].HumanoidRootPart
+	player.CFrame = other.CFrame
+end)
+c:Button("Anti-AFK", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/FiveMServerDirectorPeanut/RobloxScript/main/AntiAFK"))()
+end)
+local d = s:Tab("Credits")
+d:Label("SpecialPeanut#0018 - Coder")
+d:Label("Vep(From Vermillion) - GUI")
+d:Label("Thank you for using my script!")
+
+a:Label("Auto Buy Stock")
+
+local item = ""
+local item2 = ""
+local item3 = ""
+local item4 = ""
+local item5 = ""
+local item6 = ""
+local ammount = 1
+
+a:Dropdown("Select Item",{"None","Toys", "Small Electronics"},function(t)
+	item = ""..t
+end)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics"},function(t)
+	item2 = ""..t
+end)
+--a:Dropdown("Select Third Item",{"Toys($25)", "Small Electronics($500)"},function(t)
+	--item3 = ""..t
+--end)
+--a:Dropdown("Select Fourth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
+	--item4 = ""..t
+--end)
+--a:Dropdown("Select Fifth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
+	--item5 = ""..t
+--end)
+--a:Dropdown("Select Sixth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
+	--item6 = ""..t
+--end)
+a:Dropdown("Ammount",{"1","5","10","20", "50", "100"},function(t)
+	if t == "1" then
+		ammount = 1
+	end
+	if t == "5" then
+		ammount = 5
+	end
+	if t == "10" then
+		ammount = 10
+	end
+	if t == "20" then
+		ammount = 20
+	end
+	if t == "50" then
+		ammount = 50
+	end
+	if t == "100" then
+		ammount = 100
+	end
+end)
+
+a:Toggle("Auto Buy Stock - Instant",function(t)
+	_G.AutoBuyStockYes = false
+	_G.AutoBuyStockYes = t
+	while _G.AutoBuyStockYes == true do
+		local args = {[1] = item,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+		local args = {[1] = item2,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+	end
+end)
+
+a:Toggle("Auto Buy Stock - Not Instant",function(t)
+	 _G.AutoBuyStockNo = false
+	_G.AutoBuyStockNo = t
+	while _G.AutoBuyStockNo == true do
+		local args = {[1] = item,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		local args = {[1] = item2,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+	end
+end)
+a:Label("Instant will charge %25 Extra Cash")
+a:Label("If you choose Not Instant, Go to")
+a:Label("the pickup area with your car")
+
+--a:Label("Auto Stock")
+--a:Toggle("Auto Stock",function(t)
+--local start = false
+--local item2 = ""
+--start = t
+--while start == true do
+--start = t
+--game.Workspace[user].Parent = game.Lighting
+--local randomNumber = math.floor(Random(1,3))
+--if randomNumber == 1 then
+--item2 = "RC Trucks"
+--end
+--if randomNumber == 2 then
+--item2 = "Quadcopters"
+--end
+--if randomNumber == 3 then
+--item2 = "Toy Rocket"
+--end
+--local args = {[1] = workspace.Map.Plots["Plot_"].Objects.Floor_1.Shelves,[2] = item2}
+--game:GetService("ReplicatedStorage").Remotes.StockShelfFunction:InvokeServer(unpack(args))
+--wait(1)
+--end
+--end)
+
+a:Toggle("Auto Save", function(t)
+	_G.AutoSave = false
+	_G.AutoSave = t
+	while _G.AutoSave == true do
+		game:GetService("ReplicatedStorage").Remotes.Save:InvokeServer()
+		print("Auto Saved -- Saved")
+		wait(30)
+	end
+end)
+
+-- End of Tab A Section --
+
+-- Start of Tab B Section --
+
+b:Label("Make Sure Car is Spawned In")
+_G.findingCar = true
+local name = game.Players.LocalPlayer.Name
+
+while _G.findingCar == true do
+	local found = game.Workspace.PlayerVehicles:WaitForChild("Vehicle_"..name)
+	if (found) then
+		_G.findingCar = false
+		print("Found Car")
+		b:Label("Car Found: "..user)
+	end
+	wait(1)
+end
+
+wait(0.5)
+
+print("Car Section: Unlocked!")
+local name = game.Players.LocalPlayer.Name
+local car2 = game.Workspace.PlayerVehicles:WaitForChild("Vehicle_"..name)
+local car = car2.Config
+local MaxSpeed = car.MaxSpeed.Value
+local Torque = car.Torque.Value
+local Power = car.Power.Value
+local MaxSpeedRev = car.MaxSpeedRev.Value
+local BrakeForce = car.BrakePower.Value
+
+b:Button("Teleport to Vehicle", function()
+	game.Workspace[name].HumanoidRootPart.CFrame = CFrame.new(car2.Body.Position + Vector3.new(0, 10, 0))
+end)
+
+b:Slider("Max Speed",2,350,MaxSpeed,function(value)
+	car.MaxSpeed.Value = value
+end)
+
+b:Slider("Torque",2,350,Torque,function(value)
+	car.Torque.Value = value
+end)
+
+b:Slider("Power",2,350,Power,function(value)
+	car.Power.Value = value
+end)
+
+b:Slider("MaxSpeedRev",2,350,MaxSpeedRev,function(value)
+	car.MaxSpeedRev.Value = value
+end)
+
+b:Slider("BrakeForce",2,350,BrakeForce,function(value)
+	car.BrakePower.Value = value
+end)
+
+b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Electric blue", "White", "Really black","Pink"}, function(t)
+	car2.Tailgate.BrickColor(""..t)
+	car2.Body.BrickColor(""..t)
+end)
