@@ -1,8 +1,7 @@
 local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 local user = game.Players.LocalPlayer.Name
 
-local s = VLib:Window("user", "Retail Tycoon 2", "R")
-print(true)
+local s = VLib:Window(user, "Retail Tycoon 2", "R")
 
 -- Tab A Section --
 local a = s:Tab("Auto Section")
@@ -61,8 +60,37 @@ a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing"}
 	item2 = ""..t
 end)
 
-a:Textbox("Ammount",function(t)
-	ammount = t
+a:Dropbox("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
+	if t == "1" then
+	 ammount = 1
+	end
+	if t == "5" then
+	 ammount = 5
+	end
+	if t == "10" then
+	 ammount = 10
+	end
+	if t == "25" then
+	 ammount = 25
+	end
+	if t == "50" then
+	 ammount = 50
+	end
+	if t == "75" then
+	 ammount = 75
+	end
+	if t == "100" then
+	 ammount = 100
+	end
+	if t == "125" then
+	 ammount = 125
+	end
+	if t == "150" then
+	 ammount = 150
+	end
+	if t == "200" then
+	 ammount = 200
+	end
 end)
 
 a:Toggle("Auto Buy Stock - Instant",function(t)
@@ -110,7 +138,7 @@ while _G.findingCar == true do
 	if (found) then
 		_G.findingCar = false
 		print("Found Car")
-		b:Label("Car Found: [HIDDEN NAME]")
+		b:Label("Car Found: "..name)
 	end
 	wait(1)
 end
