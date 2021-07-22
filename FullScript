@@ -60,7 +60,7 @@ a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing"}
 	item2 = ""..t
 end)
 
-a:Dropbox("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
+a:Dropdown("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
 	if t == "1" then
 	 ammount = 1
 	end
