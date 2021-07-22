@@ -176,31 +176,31 @@ end)
 
 b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Electric blue", "White", "Really black","Pink"}, function(t)
 	if t == "Really red" then
-		car2.Tailgate.BrickColor.new("Really red")
+		car2.Tailgate.BrickColor.new("Really red") -- Just Fixed
 		car2.Body.BrickColor.new("Really red")
 	end
 	if t == "Lime green" then
-		car2.Tailgate.BrickColor.new("Lime green")
+		car2.Tailgate.BrickColor.new("Lime green")-- Just Fixed
 		car2.Body.BrickColor.new("Lime green")
 	end
 	if t == "Really blue" then
-		car2.Tailgate.BrickColor.new("Really blue")
+		car2.Tailgate.BrickColor.new("Really blue")-- Just Fixed
 		car2.Body.BrickColor.new("Really blue")
 	end
 	if t == "Electric blue" then
-		car2.Tailgate.BrickColor.new("Electric blue")
+		car2.Tailgate.BrickColor.new("Electric blue")-- Just Fixed
 		car2.Body.BrickColor.new("Electric blue")
 	end
 	if t == "White" then
-		car2.Tailgate.BrickColor.new("White")
+		car2.Tailgate.BrickColor.new("White")-- Just Fixed
 		car2.Body.BrickColor.new("White")
 	end
 	if t == "Really black" then
-		car2.Tailgate.BrickColor.new("Really black")
-		car2.Body.BrickColor.new"Really black")
+		car2.Tailgate.BrickColor.new("Really black")-- Just Fixed
+		car2.Body.BrickColor.new("Really black")
 	end
 	if t == "Pink" then
-		car2.Tailgate.BrickColor.new("Pink")
+		car2.Tailgate.BrickColor.new("Pink")-- Just Fixed
 		car2.Body.BrickColor.new("Pink")
 	end
 end)
