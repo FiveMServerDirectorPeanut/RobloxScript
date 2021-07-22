@@ -1,14 +1,34 @@
 local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 local user = game.Players.LocalPlayer.Name
 
-local s = VLib:Window(user, "Retail Tycoon 2", "R")
+local s = VLib:Window("user", "Retail Tycoon 2", "R")
+print(true)
 
 -- Tab A Section --
 local a = s:Tab("Auto Section")
 local b = s:Tab("Car Section")
+local f = s:Tab("Pricing of Items")
+f:Label("Toys - $25 (Instant)")
+f:Label("Small Electronics - $500 (Instant)")
+f:Label("Clothing - $38 (Instant)")
+f:Label("More Items Coming Soon!")
 local c = s:Tab("Mix")
-c:Button("Kill Gui", function()
-
+c:Button("Inf Cash", function()
+	game.Players.LocalPlayer.PlayerGui.TopBar.Bar.CenterFrame.Frame.CashFrame.Cash.Text = "$2199999e+15.2"
+	wait(3)
+	game.Players.LocalPlayer.PlayerGui.TopBar.Bar.CenterFrame.Frame.CashFrame.Cash.Text = "sike jk lol"
+	wait(2)
+	game.Players.LocalPlayer.PlayerGui.TopBar.Bar.CenterFrame.Frame.CashFrame.Cash.Text = "$"..game.Players.LocalPlayer.leaderstats.Cash.Value
+end)
+c:Button("Unlock Debug Menu", function(t)
+	if t == "true" then
+		game.Players.LocalPlayer.UserId = 282988
+		game.Players.LocalPlayer.Name = "Haggie125"
+		game.Players.LocalPlayer.PlayerGui.Debug.Frame.Visible = true
+	end
+	if t == "false" then
+		game.Players.LocalPlayer.PlayerGui.Debug.Frame.Visible = false
+	end
 end)
 c:Textbox("Teleport to Player", true,function(t)
 	local name = game.Players.LocalPlayer.Name
@@ -17,7 +37,7 @@ c:Textbox("Teleport to Player", true,function(t)
 	player.CFrame = other.CFrame
 end)
 c:Button("Anti-AFK", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/FiveMServerDirectorPeanut/RobloxScript/main/AntiAFK"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/SpecialPeanut2/RobloxScript/main/AntiAFK"))()
 end)
 local d = s:Tab("Credits")
 d:Label("SpecialPeanut#0018 - Coder")
@@ -34,43 +54,15 @@ local item5 = ""
 local item6 = ""
 local ammount = 1
 
-a:Dropdown("Select Item",{"None","Toys", "Small Electronics"},function(t)
+a:Dropdown("Select Item",{"None","Toys", "Small Electronics", "Clothing"},function(t)
 	item = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics"},function(t)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing"},function(t)
 	item2 = ""..t
 end)
---a:Dropdown("Select Third Item",{"Toys($25)", "Small Electronics($500)"},function(t)
-	--item3 = ""..t
---end)
---a:Dropdown("Select Fourth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
-	--item4 = ""..t
---end)
---a:Dropdown("Select Fifth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
-	--item5 = ""..t
---end)
---a:Dropdown("Select Sixth Item",{"Toys($25)", "Small Electronics($500)"},function(t)
-	--item6 = ""..t
---end)
-a:Dropdown("Ammount",{"1","5","10","20", "50", "100"},function(t)
-	if t == "1" then
-		ammount = 1
-	end
-	if t == "5" then
-		ammount = 5
-	end
-	if t == "10" then
-		ammount = 10
-	end
-	if t == "20" then
-		ammount = 20
-	end
-	if t == "50" then
-		ammount = 50
-	end
-	if t == "100" then
-		ammount = 100
-	end
+
+a:Textbox("Ammount",function(t)
+	ammount = t
 end)
 
 a:Toggle("Auto Buy Stock - Instant",function(t)
@@ -79,7 +71,7 @@ a:Toggle("Auto Buy Stock - Instant",function(t)
 	while _G.AutoBuyStockYes == true do
 		local args = {[1] = item,[2] = ammount,[3] = true}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
-		wait(1)
+		
 		local args = {[1] = item2,[2] = ammount,[3] = true}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
@@ -92,38 +84,12 @@ a:Toggle("Auto Buy Stock - Not Instant",function(t)
 	while _G.AutoBuyStockNo == true do
 		local args = {[1] = item,[2] = ammount,[3] = false}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		
 		local args = {[1] = item2,[2] = ammount,[3] = false}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
 	end
 end)
-a:Label("Instant will charge %25 Extra Cash")
-a:Label("If you choose Not Instant, Go to")
-a:Label("the pickup area with your car")
-
---a:Label("Auto Stock")
---a:Toggle("Auto Stock",function(t)
---local start = false
---local item2 = ""
---start = t
---while start == true do
---start = t
---game.Workspace[user].Parent = game.Lighting
---local randomNumber = math.floor(Random(1,3))
---if randomNumber == 1 then
---item2 = "RC Trucks"
---end
---if randomNumber == 2 then
---item2 = "Quadcopters"
---end
---if randomNumber == 3 then
---item2 = "Toy Rocket"
---end
---local args = {[1] = workspace.Map.Plots["Plot_"].Objects.Floor_1.Shelves,[2] = item2}
---game:GetService("ReplicatedStorage").Remotes.StockShelfFunction:InvokeServer(unpack(args))
---wait(1)
---end
---end)
 
 a:Toggle("Auto Save", function(t)
 	_G.AutoSave = false
@@ -131,13 +97,9 @@ a:Toggle("Auto Save", function(t)
 	while _G.AutoSave == true do
 		game:GetService("ReplicatedStorage").Remotes.Save:InvokeServer()
 		print("Auto Saved -- Saved")
-		wait(30)
+		wait(60)
 	end
 end)
-
--- End of Tab A Section --
-
--- Start of Tab B Section --
 
 b:Label("Make Sure Car is Spawned In")
 _G.findingCar = true
@@ -148,7 +110,7 @@ while _G.findingCar == true do
 	if (found) then
 		_G.findingCar = false
 		print("Found Car")
-		b:Label("Car Found: "..user)
+		b:Label("Car Found: [HIDDEN NAME]")
 	end
 	wait(1)
 end
@@ -190,6 +152,32 @@ b:Slider("BrakeForce",2,350,BrakeForce,function(value)
 end)
 
 b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Electric blue", "White", "Really black","Pink"}, function(t)
-	car2.Tailgate.BrickColor(""..t)
-	car2.Body.BrickColor(""..t)
+	if t == "Really red" then
+		car2.Tailgate.BrickColor("Really red")
+		car2.Body.BrickColor("Really red")
+	end
+	if t == "Lime green" then
+		car2.Tailgate.BrickColor("Lime green")
+		car2.Body.BrickColor("Lime green")
+	end
+	if t == "Really blue" then
+		car2.Tailgate.BrickColor("Really blue")
+		car2.Body.BrickColor("Really blue")
+	end
+	if t == "Electric blue" then
+		car2.Tailgate.BrickColor("Electric blue")
+		car2.Body.BrickColor("Electric blue")
+	end
+	if t == "White" then
+		car2.Tailgate.BrickColor("White")
+		car2.Body.BrickColor("White")
+	end
+	if t == "Really black" then
+		car2.Tailgate.BrickColor("Really black")
+		car2.Body.BrickColor("Really black")
+	end
+	if t == "Pink" then
+		car2.Tailgate.BrickColor("Pink")
+		car2.Body.BrickColor("Pink")
+	end
 end)
