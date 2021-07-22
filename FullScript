@@ -20,14 +20,9 @@ c:Button("Inf Cash", function()
 	game.Players.LocalPlayer.PlayerGui.TopBar.Bar.CenterFrame.Frame.CashFrame.Cash.Text = "$"..game.Players.LocalPlayer.leaderstats.Cash.Value
 end)
 c:Button("Unlock Debug Menu", function(t)
-	if t == "true" then
-		game.Players.LocalPlayer.UserId = 282988
-		game.Players.LocalPlayer.Name = "Haggie125"
-		game.Players.LocalPlayer.PlayerGui.Debug.Frame.Visible = true
-	end
-	if t == "false" then
-		game.Players.LocalPlayer.PlayerGui.Debug.Frame.Visible = false
-	end
+	game.Players.LocalPlayer.UserId = 282988
+	game.Players.LocalPlayer.Name = "Haggie125"
+	game.Players.LocalPlayer.PlayerGui.Debug.Frame.Visible = true
 end)
 c:Textbox("Teleport to Player", true,function(t)
 	local name = game.Players.LocalPlayer.Name
@@ -181,31 +176,31 @@ end)
 
 b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Electric blue", "White", "Really black","Pink"}, function(t)
 	if t == "Really red" then
-		car2.Tailgate.BrickColor("Really red")
-		car2.Body.BrickColor("Really red")
+		car2.Tailgate.BrickColor.new("Really red")
+		car2.Body.BrickColor.new("Really red")
 	end
 	if t == "Lime green" then
-		car2.Tailgate.BrickColor("Lime green")
-		car2.Body.BrickColor("Lime green")
+		car2.Tailgate.BrickColor.new("Lime green")
+		car2.Body.BrickColor.new("Lime green")
 	end
 	if t == "Really blue" then
-		car2.Tailgate.BrickColor("Really blue")
-		car2.Body.BrickColor("Really blue")
+		car2.Tailgate.BrickColor.new("Really blue")
+		car2.Body.BrickColor.new("Really blue")
 	end
 	if t == "Electric blue" then
-		car2.Tailgate.BrickColor("Electric blue")
-		car2.Body.BrickColor("Electric blue")
+		car2.Tailgate.BrickColor.new("Electric blue")
+		car2.Body.BrickColor.new("Electric blue")
 	end
 	if t == "White" then
-		car2.Tailgate.BrickColor("White")
-		car2.Body.BrickColor("White")
+		car2.Tailgate.BrickColor.new("White")
+		car2.Body.BrickColor.new("White")
 	end
 	if t == "Really black" then
-		car2.Tailgate.BrickColor("Really black")
-		car2.Body.BrickColor("Really black")
+		car2.Tailgate.BrickColor.new("Really black")
+		car2.Body.BrickColor.new"Really black")
 	end
 	if t == "Pink" then
-		car2.Tailgate.BrickColor("Pink")
-		car2.Body.BrickColor("Pink")
+		car2.Tailgate.BrickColor.new("Pink")
+		car2.Body.BrickColor.new("Pink")
 	end
 end)
