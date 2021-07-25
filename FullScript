@@ -12,6 +12,9 @@ f:Label("Small Electronics - $500 (Instant)")
 f:Label("Clothing - $38 (Instant)")
 f:Label("More Items Coming Soon!")
 local c = s:Tab("Mix")
+c:Button("Kill GUI", function()
+    VLib:Destroy()
+end)
 c:Button("Inf Cash", function()
 	game.Players.LocalPlayer.PlayerGui.TopBar.Bar.CenterFrame.Frame.CashFrame.Cash.Text = "$2199999e+15.2"
 	wait(3)
@@ -57,34 +60,34 @@ end)
 
 a:Dropdown("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
 	if t == "1" then
-	 ammount = 1
+		ammount = 1
 	end
 	if t == "5" then
-	 ammount = 5
+		ammount = 5
 	end
 	if t == "10" then
-	 ammount = 10
+		ammount = 10
 	end
 	if t == "25" then
-	 ammount = 25
+		ammount = 25
 	end
 	if t == "50" then
-	 ammount = 50
+		ammount = 50
 	end
 	if t == "75" then
-	 ammount = 75
+		ammount = 75
 	end
 	if t == "100" then
-	 ammount = 100
+		ammount = 100
 	end
 	if t == "125" then
-	 ammount = 125
+		ammount = 125
 	end
 	if t == "150" then
-	 ammount = 150
+		ammount = 150
 	end
 	if t == "200" then
-	 ammount = 200
+		ammount = 200
 	end
 end)
 
@@ -94,7 +97,7 @@ a:Toggle("Auto Buy Stock - Instant",function(t)
 	while _G.AutoBuyStockYes == true do
 		local args = {[1] = item,[2] = ammount,[3] = true}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
-		
+
 		local args = {[1] = item2,[2] = ammount,[3] = true}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
@@ -102,12 +105,12 @@ a:Toggle("Auto Buy Stock - Instant",function(t)
 end)
 
 a:Toggle("Auto Buy Stock - Not Instant",function(t)
-	 _G.AutoBuyStockNo = false
+	_G.AutoBuyStockNo = false
 	_G.AutoBuyStockNo = t
 	while _G.AutoBuyStockNo == true do
 		local args = {[1] = item,[2] = ammount,[3] = false}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
-		
+
 		local args = {[1] = item2,[2] = ammount,[3] = false}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
@@ -126,6 +129,7 @@ end)
 
 b:Label("Make Sure Car is Spawned In")
 _G.findingCar = true
+_G.waitingForNewCar = false
 local name = game.Players.LocalPlayer.Name
 
 while _G.findingCar == true do
@@ -133,14 +137,14 @@ while _G.findingCar == true do
 	if (found) then
 		_G.findingCar = false
 		print("Found Car")
-		b:Label("Car Found: "..name)
+		b:Label(name.."'s Car Found!")
+		_G.waitingForNewCar = true
 	end
 	wait(1)
 end
 
 wait(0.5)
 
-print("Car Section: Unlocked!")
 local name = game.Players.LocalPlayer.Name
 local car2 = game.Workspace.PlayerVehicles:WaitForChild("Vehicle_"..name)
 local car = car2.Config
@@ -175,32 +179,33 @@ b:Slider("BrakeForce",2,350,BrakeForce,function(value)
 end)
 
 b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Electric blue", "White", "Really black","Pink"}, function(t)
-	if t == "Really red" then
-		car2.Tailgate.BrickColor.new("Really red") -- Just Fixed
-		car2.Body.BrickColor.new("Really red")
+	local outputReach = ""..t
+	if outputReach == "Really red" then
+		car2.Tailgate.BrickColor = BrickColor.new("Really red")
+		car2.Body.BrickColor = BrickColor.new("Really red")
 	end
-	if t == "Lime green" then
-		car2.Tailgate.BrickColor.new("Lime green")-- Just Fixed
-		car2.Body.BrickColor.new("Lime green")
+	if outputReach == "Lime green" then
+		car2.Tailgate.BrickColor = BrickColor.new("Lime green")
+		car2.Body.BrickColor = BrickColor.new("Lime green")
 	end
-	if t == "Really blue" then
-		car2.Tailgate.BrickColor.new("Really blue")-- Just Fixed
-		car2.Body.BrickColor.new("Really blue")
+	if outputReach == "Really blue" then
+		car2.Tailgate.BrickColor = BrickColor.new("Really blue")
+		car2.Body.BrickColor = BrickColor.new("Really blue")
 	end
-	if t == "Electric blue" then
-		car2.Tailgate.BrickColor.new("Electric blue")-- Just Fixed
-		car2.Body.BrickColor.new("Electric blue")
+	if outputReach == "Electric blue" then
+		car2.Tailgate.BrickColor = BrickColor.new("Electric blue")
+		car2.Body.BrickColor = BrickColor.new("Electric blue")
 	end
-	if t == "White" then
-		car2.Tailgate.BrickColor.new("White")-- Just Fixed
-		car2.Body.BrickColor.new("White")
+	if outputReach == "White" then
+		car2.Tailgate.BrickColor = BrickColor.new("White")
+		car2.Body.BrickColor = BrickColor.new("White")
 	end
-	if t == "Really black" then
-		car2.Tailgate.BrickColor.new("Really black")-- Just Fixed
-		car2.Body.BrickColor.new("Really black")
+	if outputReach == "Really black" then
+		car2.Tailgate.BrickColor = BrickColor.new("Really black")
+		car2.Body.BrickColor = BrickColor.new("Really black")
 	end
-	if t == "Pink" then
-		car2.Tailgate.BrickColor.new("Pink")-- Just Fixed
-		car2.Body.BrickColor.new("Pink")
+	if outputReach == "Pink" then
+		car2.Tailgate.BrickColor = BrickColor.new("Pink")
+		car2.Body.BrickColor = BrickColor.new("Pink")
 	end
 end)
