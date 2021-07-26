@@ -3,7 +3,7 @@ local user = game.Players.LocalPlayer.Name
 
 local s = VLib:Window(user, "Retail Tycoon 2", "R")
 
--- Tab A Section --
+-- Tab A Section -- -- Yes we are going to do something adn we are goin to do it coreedcjasbd
 local a = s:Tab("Auto Section")
 local b = s:Tab("Car Section")
 local f = s:Tab("Pricing of Items")
