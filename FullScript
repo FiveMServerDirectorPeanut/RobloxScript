@@ -8,9 +8,26 @@ local a = s:Tab("Auto Section")
 local b = s:Tab("Car Section")
 local f = s:Tab("Pricing of Items")
 f:Label("Toys - $25 (Instant)")
-f:Label("Small Electronics - $500 (Instant)")
 f:Label("Clothing - $38 (Instant)")
-f:Label("More Items Coming Soon!")
+f:Label("Canned Food - $13 (Instant)")
+f:Label("Cold Food - $19 (Instant)")
+f:Label("Fruit - $13 (Instant)")
+f:Label("Vegetables - $13 (Instant)")
+f:Label("Small Electronics - $500 (Instant)")
+f:Label("PC Electronics - $563 (Instant)")
+f:Label("Large Electronics - $875 (Instant)")
+f:Label("Small Appliances - $250 (Instant)")
+f:Label("Large Appliances - $1250 (Instant)")
+f:Label("Brass Instruments - $625 (Instant)")
+f:Label("String Instruments - $625 (Instant)")
+f:Label("Small Outdoor Equipment - $163 (Instant)")
+f:Label("Large Outdoor Equipment - $625 (Instant)")
+f:Label("Small Power Tools - $82 (Instant)")
+f:Label("Large Power Tools - $138 (Instant)")
+f:Label("Small Furniture - $225 (Instant)")
+f:Label("Large Furniture - $563 (Instant)")
+f:Label("Exercise Equipment - $688 (Instant)")
+f:Label("Jewelry - $1125 (Instant)")
 local c = s:Tab("Mix")
 c:Button("Kill GUI", function()
     VLib:Destroy()
@@ -51,13 +68,24 @@ local item5 = ""
 local item6 = ""
 local ammount = 1
 
-a:Dropdown("Select Item",{"None","Toys", "Small Electronics", "Clothing"},function(t)
+a:Dropdown("Select Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing"},function(t)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item2 = ""..t
 end)
-
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+	item3 = ""..t
+end)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+	item4 = ""..t
+end)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+	item5 = ""..t
+end)
+a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+	item6 = ""..t
+end)
 a:Dropdown("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
 	if t == "1" then
 		ammount = 1
@@ -101,6 +129,18 @@ a:Toggle("Auto Buy Stock - Instant",function(t)
 		local args = {[1] = item2,[2] = ammount,[3] = true}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
+		local args = {[1] = item3,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		
+		local args = {[1] = item4,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+		local args = {[1] = item5,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		
+		local args = {[1] = item6,[2] = ammount,[3] = true}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
 	end
 end)
 
@@ -112,6 +152,18 @@ a:Toggle("Auto Buy Stock - Not Instant",function(t)
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 
 		local args = {[1] = item2,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+		local args = {[1] = item3,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		
+		local args = {[1] = item4,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		wait(1)
+		local args = {[1] = item5,[2] = ammount,[3] = false}
+		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
+		
+		local args = {[1] = item6,[2] = ammount,[3] = false}
 		game:GetService("ReplicatedStorage").Remotes.BuyStorage:InvokeServer(unpack(args))
 		wait(1)
 	end
@@ -207,5 +259,10 @@ b:Dropdown("Choose Car Color",{"Really red", "Lime green", "Really blue", "Elect
 	if outputReach == "Pink" then
 		car2.Tailgate.BrickColor = BrickColor.new("Pink")
 		car2.Body.BrickColor = BrickColor.new("Pink")
+	end
+	while _G.waitingForNewCar == true do
+		local name = game.Players.LocalPlayer.Name
+		local car2 = game.Workspace.PlayerVehicles:WaitForChild("Vehicle_"..name)
+		wait(3)
 	end
 end)
