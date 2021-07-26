@@ -74,16 +74,16 @@ end)
 a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item2 = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+a:Dropdown("Select Third Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item3 = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+a:Dropdown("Select Fourth Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item4 = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+a:Dropdown("Select Fifth Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item5 = ""..t
 end)
-a:Dropdown("Select Second Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
+a:Dropdown("Select Sixth Item",{"None","Toys", "Small Electronics", "Clothing", "PC Electronics", "Large Electronics", "Cold Food", "Canned Food", "Fruit", "Vegetables", "Small Appliances", "Large Appliances", "Brass Instruments", "String Instruments", "Small Outdoor Equipment", "Large Outdoor Equipment", "Small Power Tools", "Large Power Tools", "Small Furniture", "Large Furniture", "Exercise Equipment", "Jewlery"},function(t)
 	item6 = ""..t
 end)
 a:Dropdown("Ammount",{"1", "5", "10", "25", "50", "75", "100", "125", "150", "200"},function(t)
